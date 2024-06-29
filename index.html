@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CÁCH TRỊ NY DỖI</title>
+    <style>
+        body {
+            font-family: Georgia, serif;
+            background-color: pink;
+            color: #333;
+            line-height: 2;
+            padding: 35px;
+            font-weight: bold;
+        }
+        #content {
+            text-shadow: 1px 1px 1px red, 0 0 0.05em red, 0 0 0.05em red;
+            width: 100%;
+            height: 100%;
+            word-wrap: break-word;
+        }
+        audio {
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+    <div id="content"></div>
+
+    <audio id="background-music" loop>
+        <source src="https://firebasestorage.googleapis.com/v0/b/nhachay-43b11.appspot.com/o/Y2meta.app%20-%20B%C3%AAn%20Tr%C3%AAn%20T%E1%BA%A7ng%20L%E1%BA%A7u%20Remix%20_%20Tik%20Tok%202022%20(320%20kbps).mp3?alt=media&token=14fed41d-44d1-490b-ae3d-15757e4e32e9" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const contentDiv = document.getElementById('content');
+        const music = document.getElementById('background-music');
+        let i = 1;
+
+        function addText() {
+            if (i <= 100000000000000000) {
+                contentDiv.innerHTML += `ANH THỀ, ANH XIN LỖI EM LẦN ${i}❤<br>`;
+                i++;
+                setTimeout(addText, 10); 
+            }
+        }
+
+        function playMusic() {
+            if (music.paused) {
+                music.play().catch(error => {
+                    console.log('User interaction required to play music:', error);
+                });
+            }
+        }
+
+        document.addEventListener('click', playMusic);
+        document.addEventListener('keydown', playMusic);
+
+        addText();
+    </script>
+</body>
+</html>
